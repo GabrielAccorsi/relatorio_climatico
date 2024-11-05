@@ -36,10 +36,11 @@ button#gerar-pdf {
     border: 1px solid #ccc;
     cursor: pointer;
 }
-
-button#gerar-pdf img {
-    margin-right: 8px;
+button#gerar-pdf:hover{
+    background-color: #6e6e6e;
+    color: #e0e0e0;
 }
+
 
 .report {
     display: flex;

@@ -44,8 +44,9 @@ async function cidades() {
   select.addEventListener("change", async () => {
     const cidadeSelecionada = select.value;
     if (cidadeSelecionada) {
-      await new Promise((resolve) => setTimeout(resolve, 200));
-      await pegarDados(cidadeSelecionada);
+        setTimeout(() => {
+            pegarDados(cidadeSelecionada);
+          }, 200);
     }
   });
 }
@@ -71,11 +72,17 @@ async function pegarDados(cidade) {
     const data = document.querySelector("#data-info");
     const data2 = document.querySelector("#data-info2");
 
-    data2.value = `${new Date().toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      })}`;
+    // Obter a data atual
+    const dataAtual = new Date();
+  
+    // Formatar a data no formato YYYY-MM-DD
+    const ano = dataAtual.getFullYear();
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // getMonth() retorna 0-11
+    const dia = String(dataAtual.getDate()).padStart(2, '0');
+  
+    // Montar a string no formato correto
+    data2.value = `${ano}-${mes}-${dia}`;
+
     data.innerHTML = `${new Date().toLocaleDateString("pt-BR", {
       day: "2-digit",
       month: "2-digit",
