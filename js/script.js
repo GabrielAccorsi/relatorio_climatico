@@ -69,7 +69,13 @@ async function pegarDados(cidade) {
     //informações de local e data
     const local = document.querySelector("#local-info");
     const data = document.querySelector("#data-info");
+    const data2 = document.querySelector("#data-info2");
 
+    data2.value = `${new Date().toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })}`;
     data.innerHTML = `${new Date().toLocaleDateString("pt-BR", {
       day: "2-digit",
       month: "2-digit",
