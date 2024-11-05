@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/script.js" defer></script>
+  </head>
+  <body onload="estados()" id="body">
+    <button id="gerar-pdf">Salvar</button>
+    <div id="content">
+        <section class="report">
+            <h3>RELATÓRIO CLIMA</h3>
+
+            <div class="selectors">
+                <label>Estado:
+                    <select id="estados" onchange="cidades()"> </select>
+                   
+                </label>
+
+                <label>Cidade:
+                    <select id="cidades"><option value="" disabled selected>Selecione uma cidade</option></select>
+                </label>
+
+                <label>Período de Coleta:
+                    <input type="date" value="2024-10-29">
+                </label>
+            </div>
+
+            <div class="air-quality">
+                <h4>Qualidade do Ar</h4>
+                <div class="quality-status"></div>
+                <div class="quality-data">
+                    <span>CO: <span id="co-value"></span></span>
+                    <span>NO2: <span id="no2-value"></span></span>
+                    <span>O3: <span id="o3-value"></span></span>
+                    <span>PM2.5: <span id="pm25-value"></span></span>
+                    <span>PM10: <span id="pm10-value"></span></span>
+                    <span>SO2: <span id="so2-value"></span></span>
+                </div>
+            </div>
+        </section>
+
+        <p class="collection-info">
+            No dia <strong id="data-info">29/10/2024 às 11:45</strong> foram coletados dados climáticos de <strong id="local-info">Volta Redonda - RJ</strong> presentes no quadro abaixo.
+        </p>
+
+        <table class="climate-table">
+            <thead>
+                <tr>
+                    <th>Horário</th>
+                    <th>Condição</th>
+                    <th>Chuva (%)</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Sensação (°C)</th>
+                    <th>Umidade (%)</th>
+                    <th>Vento (Km/h)</th>
+                </tr>
+            </thead>
+            <tbody id="tabela">
+            </tbody>
+        </table>
+      </p>
+    </div>
+  </body>
+</html>
